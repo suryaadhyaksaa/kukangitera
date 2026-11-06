@@ -69,7 +69,7 @@ const GENERAL_MANAGER_DATA: MemberData = {
   titleBadge: 'GENERAL MANAGER',
   name: 'Urwah Abd. Manaf Panjaitan',
   major: 'Teknik Elektro 23',
-  image: '/images/team/gm-kukang.png',
+  image: '/images/team/generalmanager.png',
   icon: ShieldCheck,
   division: 'Pimpinan Utama Tim'
 };
@@ -80,7 +80,7 @@ const TOP_MANAGERS_DATA: MemberData[] = [
     titleBadge: 'TECHNICAL MANAGER',
     name: 'Raju Indra Pratama',
     major: 'Teknik Sistem Energi 23',
-    image: '/images/team/head-technical.png',
+    image: '/images/team/technical.png',
     icon: Cpu,
     division: 'Manajemen Teknis'
   },
@@ -89,7 +89,7 @@ const TOP_MANAGERS_DATA: MemberData[] = [
     titleBadge: 'NON-TECHNICAL MANAGER',
     name: 'M.Daffa Alghani',
     major: 'Teknik Elektro 23',
-    image: '/images/team/head-nontechnical.png',
+    image: '/images/team/nontechnical.png',
     icon: Settings,
     division: 'Manajemen Operasional'
   }
