@@ -37,7 +37,7 @@ export default function TechnicalDivisionsPage() {
     name: 'Raju Indra Pratama',
     role: 'Technical Manager / Kepala Divisi Technical',
     major: 'Teknik Sistem Energi 23',
-    image: '/images/team/head-technical.png',
+    image: '/images/team/technical.png',
     quote:
       'Di Divisi Technical Kukang EV, setiap milimeter struktur sasis dan setiap miliampere arus baterai diperhitungkan secara presisi. Fokus utama kami bukan hanya membangun mobil listrik yang dapat melaju, melainkan mengoptimalkan efisiensi energi ekstrem melalui inovasi komposit bodi aerodinamis serta manajemen baterai custom tingkat lanjut.'
   };
