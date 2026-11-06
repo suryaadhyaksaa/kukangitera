@@ -20,7 +20,7 @@ export default function FloatingLogo() {
       >
         {!imageError ? (
           <img
-            src="app/icon.png"
+            src="/logo.png"
             alt="Kukang EV"
             className="w-full h-full object-contain filter drop-shadow-xs"
             onError={() => setImageError(true)}
