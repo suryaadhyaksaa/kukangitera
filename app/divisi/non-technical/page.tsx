@@ -39,7 +39,7 @@ export default function NonTechnicalDivisionsPage() {
     name: 'M.Daffa Alghani',
     role: 'Non-Technical Manager / Kepala Divisi Non-Technical',
     major: 'Teknik Elektro 23',
-    image: '/images/team/head-nontechnical.png',
+    image: '/images/team/nontechnical.png',
     quote:
       'Di Divisi Non-Technical Kukang EV, kami memastikan bahwa inovasi rekayasa tidak berhenti di dalam bengkel. Dari strategi branding yang berdampak, kemitraan sponsor bernilai tinggi, hingga tata kelola operasional yang presisi, kami adalah fondasi pendorong utama keberlanjutan dan kejayaan tim di panggung nasional maupun internasional.'
   };
