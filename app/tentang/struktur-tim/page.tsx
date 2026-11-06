@@ -69,7 +69,7 @@ const GENERAL_MANAGER_DATA: MemberData = {
   titleBadge: 'GENERAL MANAGER',
   name: 'Urwah Abd. Manaf Panjaitan',
   major: 'Teknik Elektro 23',
-  image: '/images/team/gm-kukang.jpg',
+  image: '/images/team/gm-kukang.png',
   icon: ShieldCheck,
   division: 'Pimpinan Utama Tim'
 };
@@ -80,7 +80,7 @@ const TOP_MANAGERS_DATA: MemberData[] = [
     titleBadge: 'TECHNICAL MANAGER',
     name: 'Raju Indra Pratama',
     major: 'Teknik Sistem Energi 23',
-    image: '/images/team/head-technical.jpg',
+    image: '/images/team/head-technical.png',
     icon: Cpu,
     division: 'Manajemen Teknis'
   },
@@ -89,7 +89,7 @@ const TOP_MANAGERS_DATA: MemberData[] = [
     titleBadge: 'NON-TECHNICAL MANAGER',
     name: 'M.Daffa Alghani',
     major: 'Teknik Elektro 23',
-    image: '/images/team/head-nontechnical.jpg',
+    image: '/images/team/head-nontechnical.png',
     icon: Settings,
     division: 'Manajemen Operasional'
   }
@@ -163,8 +163,8 @@ const NON_TECHNICAL_DIVISIONS: DivisionData[] = [
     members: [
       { name: 'Sahiva Syamdo Vinoza', role: 'Staff Administrations', major: 'Teknik Informatika 23', image: '/images/team/admin-1.png', division: 'Divisi Administrasi' },
       { name: 'Surya Adhyaksa', role: 'Staff Secretary', major: 'Rekayasa Instrumentasi dan Automasi 24', image: '/images/team/admin-2.png', division: 'Divisi Administrasi' },
-      { name: 'Siti Nur Aisyah', role: 'Staff Secretary', major: 'Teknik Geomatika/Geofisika 25', image: '/images/team/admin-3.jpg', division: 'Divisi Administrasi' },
-      { name: 'Muhammad Maulidan', role: 'Staff Secretary', major: 'Teknik Mesin 25', image: '/images/team/admin-4.jpg', division: 'Divisi Administrasi' },
+      { name: 'Siti Nur Aisyah', role: 'Staff Secretary', major: 'Teknik Geomatika/Geofisika 25', image: '/images/team/admin-3.png', division: 'Divisi Administrasi' },
+      { name: 'Muhammad Maulidan', role: 'Staff Secretary', major: 'Teknik Mesin 25', image: '/images/team/admin-4.png', division: 'Divisi Administrasi' },
       { name: 'Don Jabbaru Farhan Aroyo', role: 'Staff Finance & Legal', major: 'Teknik Elektro 23', image: '/images/team/admin-5.png', division: 'Divisi Administrasi' },
       { name: 'Febri Yanti Pasaribu', role: 'Staff Finance', major: 'Teknik Industri 25', image: '/images/team/admin-6.png', division: 'Divisi Administrasi' },
       { name: 'Melva Yolanda Erlika Fara', role: 'Staff Sponsorship', major: 'Teknik Industri 25', image: '/images/team/admin-7.png', division: 'Divisi Administrasi' }
@@ -200,9 +200,9 @@ const NON_TECHNICAL_DIVISIONS: DivisionData[] = [
       { name: 'Anisa Fikratul Afizah', role: 'Staff Content Creator', major: 'Teknik Industri 23', image: '/images/team/media-1.png', division: 'Divisi Media Creative' },
       { name: 'Tegar Bimantara', role: 'Staff Videographer', major: 'Perencanaan Wilayah dan Kota 23', image: '/images/team/media-2.png', division: 'Divisi Media Creative' },
       { name: 'Aline Jennifer', role: 'Staff Social Media Specialist', major: 'Kimia 23', image: '/images/team/media-3.png', division: 'Divisi Media Creative' },
-      { name: 'Nugraheni Sihombing', role: 'Staff Content Creator', major: 'Rekayasa Instrumentasi dan Automasi 24', image: '/images/team/media-4.jpg', division: 'Divisi Media Creative' },
-      { name: 'Muhammad Rivaldo Avicenna', role: 'Staff Graphic Designer', major: 'Teknik Informatika', image: '/images/team/media-5.jpg', division: 'Divisi Media Creative' },
-      { name: 'Yul Dwi Muqarrib', role: 'Staff Social Media Specialist', major: 'Teknik Elektro', image: '/images/team/media-6.jpg', division: 'Divisi Media Creative' }
+      { name: 'Nugraheni Sihombing', role: 'Staff Content Creator', major: 'Rekayasa Instrumentasi dan Automasi 24', image: '/images/team/media-4.png', division: 'Divisi Media Creative' },
+      { name: 'Muhammad Rivaldo Avicenna', role: 'Staff Graphic Designer', major: 'Teknik Informatika', image: '/images/team/media-5.png', division: 'Divisi Media Creative' },
+      { name: 'Yul Dwi Muqarrib', role: 'Staff Social Media Specialist', major: 'Teknik Elektro', image: '/images/team/media-6.png', division: 'Divisi Media Creative' }
     ]
   }
 ];

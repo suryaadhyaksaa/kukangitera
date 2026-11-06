@@ -39,7 +39,7 @@ export default function NonTechnicalDivisionsPage() {
     name: 'M.Daffa Alghani',
     role: 'Non-Technical Manager / Kepala Divisi Non-Technical',
     major: 'Teknik Elektro 23',
-    image: '/images/team/head-nontechnical.jpg',
+    image: '/images/team/head-nontechnical.png',
     quote:
       'Di Divisi Non-Technical Kukang EV, kami memastikan bahwa inovasi rekayasa tidak berhenti di dalam bengkel. Dari strategi branding yang berdampak, kemitraan sponsor bernilai tinggi, hingga tata kelola operasional yang presisi, kami adalah fondasi pendorong utama keberlanjutan dan kejayaan tim di panggung nasional maupun internasional.'
   };
@@ -88,7 +88,7 @@ export default function NonTechnicalDivisionsPage() {
       name: 'Branding & Design System', 
       desc: 'Perancangan identitas visual, livery mobil, dan kit pemasaran tim.',
       detailedDesc: 'Tahap penyusunan identitas visual terpadu Kukang EV. Kami merancang panduan desain (brand guidelines), desain livery aerodinamis mobil listrik, merchandise resmi, serta materi publikasi visual untuk meningkatkan nilai daya tarik tim di mata publik dan sponsor.',
-      img: '/images/non-technical/branding.jpg',
+      img: '/images/non-technical/branding.png',
       tag: 'DESIGN',
       highlights: ['Brand Identity Guidelines', 'Vehicle Livery Design 3D', 'Official Merchandise & Apparels']
     },
@@ -97,7 +97,7 @@ export default function NonTechnicalDivisionsPage() {
       name: 'Proposal & Corporate Pitching', 
       desc: 'Penyusunan proposal pendanaan dan presentasi ke mitra industri.',
       detailedDesc: 'Proses penyusunan proposal sponsorship profesional bertaraf industri. Tim melakukan riset prospek mitra, menyusun paket benefit eksklusif, serta melangsungkan sesi presentasi (pitching) langsung ke perusahaan calon penyokong dana.',
-      img: '/images/non-technical/pitching.jpg',
+      img: '/images/non-technical/pitching.png',
       tag: 'PARTNERSHIP',
       highlights: ['Industrial Sponsorship Proposal', 'Corporate Pitching & Negotiation', 'Sponsor Benefits Agreement']
     },
@@ -106,7 +106,7 @@ export default function NonTechnicalDivisionsPage() {
       name: 'Content & Media Production', 
       desc: 'Dokumentasi riset, pembuatan video sinematik, dan press release.',
       detailedDesc: 'Proses produksi konten multimedia harian di bengkel dan lintasan balap. Tim media meliput proses rekayasa teknik, menyunting video dokumenter pendek, dan menerbitkan rilis pers ke berbagai jejaring media massa lokal dan nasional.',
-      img: '/images/non-technical/content.jpg',
+      img: '/images/non-technical/content.png',
       tag: 'MEDIA',
       highlights: ['Workshop Cinematic Photography', 'Short Documentary & Reels', 'Press Release & Public Publication']
     },
@@ -115,7 +115,7 @@ export default function NonTechnicalDivisionsPage() {
       name: 'Race Logistics & Finance Audit', 
       desc: 'Pengelolaan logistik arena balap dan audit transparansi keuangan.',
       detailedDesc: 'Tahap krusial eksekusi lapangan saat kompetisi. Tim operasional mengelola mobilisasi paddock, jadwal katering, pengiriman kendaraan, sementara tim keuangan melakukan verifikasi serta pembukuan audit alokasi dana secara rinci.',
-      img: '/images/non-technical/logistics.jpg',
+      img: '/images/non-technical/logistics.png',
       tag: 'OPERATIONS',
       highlights: ['Paddock & Transport Logistics', 'On-site Hospitality Management', 'Comprehensive Financial Audit']
     }

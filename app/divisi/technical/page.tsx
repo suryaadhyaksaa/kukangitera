@@ -37,7 +37,7 @@ export default function TechnicalDivisionsPage() {
     name: 'Raju Indra Pratama',
     role: 'Technical Manager / Kepala Divisi Technical',
     major: 'Teknik Sistem Energi 23',
-    image: '/images/team/head-technical.jpg',
+    image: '/images/team/head-technical.png',
     quote:
       'Di Divisi Technical Kukang EV, setiap milimeter struktur sasis dan setiap miliampere arus baterai diperhitungkan secara presisi. Fokus utama kami bukan hanya membangun mobil listrik yang dapat melaju, melainkan mengoptimalkan efisiensi energi ekstrem melalui inovasi komposit bodi aerodinamis serta manajemen baterai custom tingkat lanjut.'
   };
@@ -86,7 +86,7 @@ export default function TechnicalDivisionsPage() {
       name: 'CAD & Simulation', 
       desc: 'Pemodelan 3D sasis, analisis FEA, dan simulasi CFD aerodinamika bodi.',
       detailedDesc: 'Tahap awal perancangan digital di mana seluruh struktur mobil listrik disimulasikan secara komputasional. Kami menguji ketahanan tegangan sasis melalui Finite Element Analysis (FEA) dan mengoptimalkan aliran udara bodi menggunakan Computational Fluid Dynamics (CFD) untuk meminimalkan hambatan angin.',
-      img: '/images/workshop/cad-sim.jpg',
+      img: '/images/workshop/cad-sim.png',
       tag: 'DESAIN 3D',
       highlights: ['3D Modeling SolidWorks / CATIA', 'FEA Stress Analysis Sasis', 'CFD Aerodynamic Drag Simulation']
     },
@@ -95,7 +95,7 @@ export default function TechnicalDivisionsPage() {
       name: 'Battery Spot Weld & Sasis', 
       desc: 'Perakitan sel baterai custom dan fabrikasi struktur tubular sasis.',
       detailedDesc: 'Proses perakitan fisik modul baterai menggunakan teknik pengelasan titik (spot welding) presisi tinggi guna memastikan resistansi listrik minimal antar-sel. Di saat bersamaan, tim mekanik mengelas dan membentuk struktur pipa sasis tubular berbahan presisi tinggi yang kokoh namun ringan.',
-      img: '/images/workshop/spot-weld.jpg',
+      img: '/images/workshop/spot-weld.png',
       tag: 'FABRIKASI',
       highlights: ['Custom Spot Welding Battery', 'Precision Cell Balancing & Pack Wiring', 'Tubular Steel Chassis Fabrication']
     },
@@ -104,7 +104,7 @@ export default function TechnicalDivisionsPage() {
       name: 'Composite Body & Wiring', 
       desc: 'Pencetakan bodi komposit ringan dan instalasi wiring harness.',
       detailedDesc: 'Tahap pencetakan bodi aerodinamis menggunakan material serat komposit (fiberglass / carbon fiber) melalui metode moulding presisi. Dilanjutkan dengan instalasi jalur kabel kelistrikan (wiring harness) modular yang teruji tahan terhadap vibrasi ekstrem dan panas.',
-      img: '/images/workshop/body-wiring.jpg',
+      img: '/images/workshop/body-wiring.png',
       tag: 'ASSEMBLY',
       highlights: ['Composite Layup & Moulding', 'Vibration-resistant Wiring Harness', 'BMS & Telemetry Module Integration']
     },
@@ -113,7 +113,7 @@ export default function TechnicalDivisionsPage() {
       name: 'Track Test & Telemetry', 
       desc: 'Pengujian melaju di lintasan sirkuit dan evaluasi konsumsi daya.',
       detailedDesc: 'Tahap uji coba lapangan untuk mengevaluasi dinamika kendaraan, respon pengereman, dan efisiensi konsumsi energi per kilometer. Seluruh data performa baterai, arus, dan kecepatan ditransmisikan secara real-time via IoT ke pit-stop monitor.',
-      img: '/images/workshop/track-test.jpg',
+      img: '/images/workshop/track-test.png',
       tag: 'TESTING',
       highlights: ['Real-time Telemetry Dashboard', 'On-track Power Efficiency Benchmark', 'Brake & Handling Calibration']
     }
