@@ -1,3 +1,4 @@
 {
-  "toolbar": false
+  "buildCommand": "next build",
+  "toolbar": true
 }
