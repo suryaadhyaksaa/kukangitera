@@ -211,7 +211,6 @@ const NON_TECHNICAL_DIVISIONS: DivisionData[] = [
 // SUB COMPONENTS
 // ==========================================
 
-// Kartu Anggota Glassmorphic Light Theme
 function MemberCard({ role, titleBadge, name, major, image, icon: Icon, highlight = false, isStaff = false, onClick }: MemberCardProps) {
   const [imgError, setImgError] = useState(false);
 
@@ -232,7 +231,6 @@ function MemberCard({ role, titleBadge, name, major, image, icon: Icon, highligh
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-36 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-full" />
       )}
 
-      {/* Wadah Badge Anggota: Selalu Punya Wadah Khusus di Atas & Rata Tengah */}
       {titleBadge && (
         <div className="w-full flex justify-center items-center mb-2.5 px-1">
           <span className="inline-flex items-center justify-center gap-1 text-[9px] sm:text-[10px] font-orbitron font-bold text-amber-800 bg-amber-100/90 border border-amber-300/80 px-2.5 py-1 rounded-lg uppercase tracking-wider text-center leading-tight shadow-sm max-w-full break-words [overflow-wrap:anywhere]">
@@ -242,7 +240,6 @@ function MemberCard({ role, titleBadge, name, major, image, icon: Icon, highligh
         </div>
       )}
 
-      {/* Foto Profil */}
       <div
         className={`relative overflow-hidden border border-slate-200 bg-slate-100 flex items-center justify-center shrink-0 rounded-xl shadow-inner ${
           isStaff ? 'w-16 h-20 sm:w-20 sm:h-24 mb-2' : 'w-24 h-32 sm:w-28 sm:h-36 mb-3'
@@ -271,7 +268,6 @@ function MemberCard({ role, titleBadge, name, major, image, icon: Icon, highligh
         </div>
       </div>
 
-      {/* Informasi Nama & Jabatan */}
       <div className="space-y-1 w-full flex flex-col items-center justify-center text-center min-w-0">
         <h3 className={`font-orbitron font-bold text-slate-900 leading-snug text-center break-words [overflow-wrap:anywhere] w-full ${
           isStaff ? 'text-[11px] sm:text-sm line-clamp-2' : 'text-xs sm:text-base line-clamp-2'
@@ -293,7 +289,6 @@ function MemberCard({ role, titleBadge, name, major, image, icon: Icon, highligh
   );
 }
 
-// Modal View Foto High-Res
 function MemberModal({ member, onClose }: { member: MemberData | null; onClose: () => void }) {
   if (!member) return null;
 
@@ -421,7 +416,6 @@ export default function StructurePage() {
   return (
     <div className="relative min-h-screen bg-slate-50 text-slate-800 font-sans overflow-x-hidden selection:bg-amber-200">
       
-      {/* Background Glow */}
       <div className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] sm:w-[800px] h-[350px] sm:h-[800px] bg-gradient-to-tr from-amber-200/40 via-orange-100/30 to-red-100/20 rounded-full blur-3xl opacity-70" />
         
@@ -440,7 +434,6 @@ export default function StructurePage() {
       <main className="relative z-10 pt-20 sm:pt-28 pb-20 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <MemberModal member={selectedMember} onClose={() => setSelectedMember(null)} />
 
-        {/* ================= HERO HEADER ================= */}
         <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 mb-8">
           <h1 className="text-xl sm:text-4xl md:text-5xl font-black font-orbitron tracking-tight text-slate-900 leading-tight">
             STRUKTUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-red-600">ORGANISASI</span>
@@ -471,7 +464,6 @@ export default function StructurePage() {
           </div>
         </div>
 
-        {/* ================= INTERACTIVE CONTROL BAR ================= */}
         <div className="bg-white/80 backdrop-blur-xl border border-slate-200/90 rounded-2xl p-2.5 sm:p-4 mb-8 sm:mb-10 shadow-lg shadow-slate-200/50 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 sticky top-16 sm:top-20 z-30">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2 w-full md:w-auto">
             {[
@@ -516,7 +508,6 @@ export default function StructurePage() {
           </div>
         </div>
 
-        {/* ================= PIMPINAN UTAMA ================= */}
         {(activeTab === 'ALL' || activeTab === 'LEADERSHIP') && (
           <div className="space-y-6 sm:space-y-12 mb-12 sm:mb-16">
             {matchesSearch(PEMBINA_DATA) && (
@@ -552,7 +543,6 @@ export default function StructurePage() {
           </div>
         )}
 
-        {/* ================= DIVISI TEKNIS ================= */}
         {(activeTab === 'ALL' || activeTab === 'TECHNICAL') && (
           <div className="mt-8 sm:mt-12 space-y-6 sm:space-y-12">
             <div className="flex items-center gap-2 justify-center border-b border-slate-200 pb-3">
@@ -573,8 +563,6 @@ export default function StructurePage() {
 
               return (
                 <div key={idx} className="bg-white/80 backdrop-blur-xl border border-slate-200/90 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 space-y-4 sm:space-y-5 shadow-lg shadow-slate-200/40 w-full min-w-0 overflow-hidden">
-                  
-                  {/* Header Divisi: Rapi & Akses Mulus di Mobile / Desktop */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200/80 pb-3 gap-2.5 w-full min-w-0">
                     <div className="flex items-start sm:items-center gap-2 text-slate-900 font-orbitron font-bold text-xs sm:text-base min-w-0 w-full sm:w-auto">
                       <div className="p-1.5 rounded-lg bg-amber-100 text-amber-700 shrink-0 mt-0.5 sm:mt-0">
@@ -627,7 +615,6 @@ export default function StructurePage() {
           </div>
         )}
 
-        {/* ================= DIVISI NON-TEKNIS ================= */}
         {(activeTab === 'ALL' || activeTab === 'NON_TECHNICAL') && (
           <div className="mt-10 sm:mt-14 space-y-6 sm:space-y-12">
             <div className="flex items-center gap-2 justify-center border-b border-slate-200 pb-3">
@@ -648,8 +635,6 @@ export default function StructurePage() {
 
               return (
                 <div key={idx} className="bg-white/80 backdrop-blur-xl border border-slate-200/90 rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 space-y-4 sm:space-y-5 shadow-lg shadow-slate-200/40 w-full min-w-0 overflow-hidden">
-                  
-                  {/* Header Divisi: Rapi & Akses Mulus di Mobile / Desktop */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200/80 pb-3 gap-2.5 w-full min-w-0">
                     <div className="flex items-start sm:items-center gap-2 text-slate-900 font-orbitron font-bold text-xs sm:text-base min-w-0 w-full sm:w-auto">
                       <div className="p-1.5 rounded-lg bg-orange-100 text-orange-700 shrink-0 mt-0.5 sm:mt-0">
@@ -702,7 +687,6 @@ export default function StructurePage() {
           </div>
         )}
 
-        {/* ================= CALL TO ACTION FOOTER BANNER ================= */}
         <div className="mt-12 sm:mt-16 text-center bg-gradient-to-b from-white/90 to-amber-50/80 border border-amber-200/80 rounded-2xl sm:rounded-3xl p-5 sm:p-10 max-w-3xl mx-auto shadow-xl shadow-amber-500/5 backdrop-blur-xl">
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-3">
             <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
