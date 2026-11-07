@@ -6,17 +6,17 @@ import Link from 'next/link';
 import {
   Zap,
   Wrench,
-  BatteryCharging,
-  Layers,
   Sparkles,
   Quote,
   ChevronRight,
   CheckCircle2,
-  Gauge,
   ZoomIn,
   X,
   Info,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Cpu,
+  Layers,
+  Activity
 } from 'lucide-react';
 
 interface WorkshopItem {
@@ -120,8 +120,17 @@ export default function TechnicalDivisionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF7EE] text-slate-800 font-inter overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#FAF7EE] text-slate-800 font-inter overflow-x-hidden relative selection:bg-amber-500 selection:text-white">
       <Navbar />
+
+      {/* WATERMARK LOGO KUKANG TRANSPARAN DI LATAR BELAKANG */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[750px] h-[550px] sm:h-[750px] pointer-events-none opacity-[0.07] z-0 select-none flex items-center justify-center">
+        <img 
+          src="/logo-kukang.png" 
+          alt="Kukang EV Logo Watermark" 
+          className="w-full h-full object-contain filter grayscale"
+        />
+      </div>
 
       {/* Modal Fullscreen Preview Foto Head Technical */}
       {showHeadPhotoModal && (
@@ -131,7 +140,7 @@ export default function TechnicalDivisionsPage() {
         >
           <button
             onClick={() => setShowHeadPhotoModal(false)}
-            className="absolute top-5 right-5 sm:top-8 sm:right-8 p-3 rounded-full bg-slate-900/80 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/80 transition-all z-20 cursor-pointer shadow-lg"
+            className="absolute top-5 right-5 sm:top-8 sm:right-8 p-3 rounded-full bg-slate-900/80 text-slate-300 hover:text-white hover:bg-amber-600 border border-slate-700/80 transition-all z-20 cursor-pointer shadow-lg"
           >
             <X className="w-6 h-6" />
           </button>
@@ -166,20 +175,19 @@ export default function TechnicalDivisionsPage() {
           onClick={() => setSelectedWorkshopItem(null)}
         >
           <div 
-            className="relative max-w-4xl w-full bg-white border-2 border-amber-400 rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/40 flex flex-col max-h-[92vh]"
+            className="relative max-w-4xl w-full bg-white/95 backdrop-blur-lg border-2 border-amber-400 rounded-3xl overflow-hidden shadow-2xl shadow-amber-950/40 flex flex-col max-h-[92vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Tombol Close */}
             <button
               onClick={() => setSelectedWorkshopItem(null)}
-              className="absolute top-4 right-4 p-3 rounded-full bg-slate-950/85 text-white hover:bg-red-600 transition-all z-30 cursor-pointer shadow-xl border border-slate-700/80"
+              className="absolute top-4 right-4 p-3 rounded-full bg-slate-950/85 text-white hover:bg-amber-600 transition-all z-30 cursor-pointer shadow-xl border border-slate-700/80"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Area Gambar Dokumentasi */}
             <div className="relative h-72 sm:h-[380px] w-full bg-gradient-to-br from-slate-900 via-slate-950 to-amber-950 shrink-0 overflow-hidden flex items-center justify-center border-b-2 border-amber-300">
-              {/* Fallback Graphic saat gambar loading */}
               <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-amber-950/40 to-slate-950 flex flex-col items-center justify-center text-slate-400 p-6 text-center">
                 <div className="p-4 rounded-2xl bg-slate-900/80 border border-amber-500/30 mb-3 shadow-lg">
                   <ImageIcon className="w-12 h-12 text-amber-400 animate-pulse" />
@@ -197,10 +205,8 @@ export default function TechnicalDivisionsPage() {
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
 
-              {/* Gradient Overlay Tipis */}
               <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
               
-              {/* Header Title Overlay */}
               <div className="absolute bottom-4 left-6 right-6 z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
@@ -220,7 +226,7 @@ export default function TechnicalDivisionsPage() {
             </div>
 
             {/* Penjelasan Detail Kegiatan */}
-            <div className="p-6 sm:p-8 space-y-6 overflow-y-auto custom-scrollbar bg-amber-50/30">
+            <div className="p-6 sm:p-8 space-y-6 overflow-y-auto custom-scrollbar bg-amber-50/40">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xs font-space-grotesk text-amber-900 font-bold">
                   <Info className="w-4 h-4 text-amber-600" /> DETAIL PENJELASAN KEGIATAN
@@ -230,14 +236,13 @@ export default function TechnicalDivisionsPage() {
                 </p>
               </div>
 
-              {/* Highlights Sub-Kegiatan */}
               <div className="space-y-3 pt-3 border-t border-amber-200">
                 <span className="text-xs font-space-grotesk text-amber-900 font-bold uppercase tracking-wider">
                   FOKUS UTAMA & TEKNOLOGI
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {selectedWorkshopItem.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 bg-white border border-amber-300/80 rounded-xl px-4 py-3 shadow-xs">
+                    <div key={idx} className="flex items-center gap-2.5 bg-white/90 backdrop-blur-xs border border-amber-300/80 rounded-xl px-4 py-3 shadow-xs">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span className="text-xs text-slate-800 font-inter font-semibold">{item}</span>
                     </div>
@@ -249,26 +254,27 @@ export default function TechnicalDivisionsPage() {
         </div>
       )}
 
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+      <main className="relative z-10 pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
         
         {/* HERO TITLE SECTION */}
         <div className="text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-950 text-xs font-bold font-space-grotesk tracking-widest uppercase shadow-xs">
+            <Cpu className="w-3.5 h-3.5 text-amber-600" /> TECHNICAL DIVISION & ENGINEERING
+          </div>
           <h1 className="text-3xl sm:text-5xl font-black font-space-grotesk tracking-tight text-slate-900">
-            TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">SQUAD</span>
+            TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-500">SQUAD</span>
           </h1>
           <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto font-inter leading-relaxed font-medium">
             Pusat riset dan manufaktur kendaraan listrik efisiensi tinggi Kukang EV ITERA. Menggabungkan ketelitian rekayasa kelistrikan, daya tahan mekanis, dan aerodinamika bodi masa depan.
           </p>
         </div>
 
-        {/* SALAM PEMBUKA HEAD TECHNICAL */}
-        <div className="relative bg-gradient-to-br from-white via-amber-50 to-yellow-100/70 border-2 border-amber-300 rounded-3xl p-6 sm:p-10 shadow-xl shadow-amber-900/5 overflow-hidden">
-          
+        {/* SALAM PEMBUKA HEAD TECHNICAL (GLASSMORPHISM CARD) */}
+        <div className="relative bg-white/85 backdrop-blur-md border-2 border-amber-300/90 rounded-3xl p-6 sm:p-10 shadow-xl shadow-amber-900/5 overflow-hidden">
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-amber-300/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-orange-300/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-10">
-            
             {/* FOTO MANAJER */}
             <div className="w-full sm:w-80 shrink-0 flex flex-col items-center">
               <div 
@@ -308,8 +314,7 @@ export default function TechnicalDivisionsPage() {
 
             {/* KONTEN SALAM PEMBUKA */}
             <div className="flex-1 flex flex-col justify-center space-y-6 text-left">
-              
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold font-space-grotesk w-max shadow-xs">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs font-bold font-space-grotesk w-max shadow-xs">
                 <Quote className="w-3.5 h-3.5 text-amber-700" /> AMBISI TEKNIS & INOVASI
               </div>
 
@@ -319,24 +324,22 @@ export default function TechnicalDivisionsPage() {
                 </p>
               </blockquote>
 
-              <div className="pt-4 border-t border-amber-200 flex flex-wrap gap-2.5">
-                <span className="text-xs font-inter font-bold text-amber-950 bg-white border border-amber-300/80 px-3.5 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
+              <div className="pt-4 border-t border-amber-200/80 flex flex-wrap gap-2.5">
+                <span className="text-xs font-inter font-bold text-amber-950 bg-white/90 border border-amber-300/80 px-3.5 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-amber-600" /> High-Efficiency Electrical
                 </span>
-                <span className="text-xs font-inter font-bold text-amber-950 bg-white border border-amber-300/80 px-3.5 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
+                <span className="text-xs font-inter font-bold text-amber-950 bg-white/90 border border-amber-300/80 px-3.5 py-1.5 rounded-xl shadow-xs flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" /> Lightweight Composite Body
                 </span>
               </div>
-
             </div>
-
           </div>
         </div>
 
         {/* DETIL FOKUS KERJA DIVISI TECHNICAL */}
-        <div className="space-y-12">
+        <div className="space-y-10">
           <div className="text-center space-y-2">
-            <span className="text-xs font-space-grotesk text-amber-700 font-bold tracking-widest uppercase">
+            <span className="text-xs font-space-grotesk text-amber-700 font-bold tracking-widest uppercase bg-amber-100/80 px-3 py-1 rounded-full border border-amber-200 inline-block">
               WORKFLOW & RESPONSIBILITIES
             </span>
             <h2 className="text-2xl sm:text-4xl font-black font-space-grotesk text-slate-900">
@@ -345,11 +348,10 @@ export default function TechnicalDivisionsPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
             {/* 1. SEKTOR ELECTRICAL & PROGRAMMING */}
-            <div className="bg-white border border-amber-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-amber-900/5">
+            <div className="bg-white/85 backdrop-blur-md border border-amber-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-amber-900/5 hover:border-amber-400 transition-all">
               <div className="flex items-center gap-3 border-b border-amber-100 pb-4">
-                <div className="p-3 bg-amber-50 border border-amber-300 rounded-2xl text-amber-700">
+                <div className="p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-amber-700">
                   <Zap className="w-6 h-6" />
                 </div>
                 <div>
@@ -364,7 +366,7 @@ export default function TechnicalDivisionsPage() {
 
               <div className="space-y-4">
                 {focusElectrical.map((item, idx) => (
-                  <div key={idx} className="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-4 space-y-1">
+                  <div key={idx} className="bg-amber-50/40 border border-amber-200/60 rounded-2xl p-4 space-y-1">
                     <h4 className="font-space-grotesk font-bold text-xs text-amber-900 flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       <span>{item.title}</span>
@@ -378,9 +380,9 @@ export default function TechnicalDivisionsPage() {
             </div>
 
             {/* 2. SEKTOR MECHANICAL, CHASSIS & BODY */}
-            <div className="bg-white border border-amber-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-amber-900/5">
+            <div className="bg-white/85 backdrop-blur-md border border-amber-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-amber-900/5 hover:border-amber-400 transition-all">
               <div className="flex items-center gap-3 border-b border-amber-100 pb-4">
-                <div className="p-3 bg-amber-50 border border-amber-300 rounded-2xl text-amber-700">
+                <div className="p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-amber-700">
                   <Wrench className="w-6 h-6" />
                 </div>
                 <div>
@@ -395,7 +397,7 @@ export default function TechnicalDivisionsPage() {
 
               <div className="space-y-4">
                 {focusMechanical.map((item, idx) => (
-                  <div key={idx} className="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-4 space-y-1">
+                  <div key={idx} className="bg-amber-50/40 border border-amber-200/60 rounded-2xl p-4 space-y-1">
                     <h4 className="font-space-grotesk font-bold text-xs text-amber-900 flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       <span>{item.title}</span>
@@ -407,14 +409,13 @@ export default function TechnicalDivisionsPage() {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 
-        {/* SECTION ALUR KERJA */}
+        {/* SECTION ALUR KERJA / R&D */}
         <div className="space-y-6">
           <div className="text-center space-y-1.5">
-            <span className="text-[10px] font-space-grotesk text-amber-800 font-bold tracking-widest uppercase bg-amber-100 px-3 py-1 rounded-full border border-amber-200 inline-block">
+            <span className="text-[10px] font-space-grotesk text-amber-800 font-bold tracking-widest uppercase bg-amber-100/80 px-3 py-1 rounded-full border border-amber-200 inline-block">
               PROOF OF WORK
             </span>
             <h3 className="text-2xl sm:text-3xl font-space-grotesk font-extrabold text-slate-900">
@@ -430,14 +431,14 @@ export default function TechnicalDivisionsPage() {
               <div 
                 key={idx} 
                 onClick={() => setSelectedWorkshopItem(p)}
-                className="group relative bg-white border-2 border-amber-200/80 hover:border-amber-500 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group relative bg-white/90 backdrop-blur-xs border-2 border-amber-200/80 hover:border-amber-500 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
               >
                 {/* Visual Header / Foto Mini */}
                 <div className="relative h-44 sm:h-48 w-full bg-slate-950 overflow-hidden shrink-0">
                   <img 
                     src={p.img} 
                     alt={p.name}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
                   
@@ -460,7 +461,7 @@ export default function TechnicalDivisionsPage() {
                 </div>
 
                 {/* Body Content */}
-                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between border-t border-amber-100 bg-gradient-to-b from-white to-amber-50/20">
+                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between border-t border-amber-100 bg-gradient-to-b from-white/90 to-amber-50/20">
                   <div className="space-y-1">
                     <div className="flex items-center justify-between">
                       <h4 className="text-sm font-space-grotesk font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
@@ -479,7 +480,7 @@ export default function TechnicalDivisionsPage() {
         </div>
 
         {/* CALL TO ACTION */}
-        <div className="text-center bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-100/80 border border-amber-300/80 rounded-3xl p-8 max-w-3xl mx-auto shadow-md">
+        <div className="text-center bg-gradient-to-r from-amber-50/90 via-yellow-50/90 to-amber-100/90 backdrop-blur-md border border-amber-300/80 rounded-3xl p-8 max-w-3xl mx-auto shadow-md">
           <h3 className="font-space-grotesk font-bold text-slate-900 text-lg mb-2">Tertarik Mengenal Anggota Tim Technical?</h3>
           <p className="text-xs text-slate-600 max-w-md mx-auto mb-6 font-inter">
             Lihat daftar lengkap mahasiswa dan staf engineer yang mengoperasikan setiap sub-divisi di Kukang EV.
@@ -494,7 +495,7 @@ export default function TechnicalDivisionsPage() {
 
       </main>
 
-      <footer className="border-t border-amber-200 py-8 text-center text-xs text-slate-600 font-inter bg-amber-50/80">
+      <footer className="relative z-10 border-t border-amber-200 py-8 text-center text-xs text-slate-600 font-inter bg-amber-50/80 backdrop-blur-md">
         © {new Date().getFullYear()} Kukang EV Team - ITERA. All rights reserved.
       </footer>
     </div>
