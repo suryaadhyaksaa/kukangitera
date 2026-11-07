@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Megaphone,
   DollarSign,
@@ -121,11 +122,15 @@ export default function NonTechnicalDivisionsPage() {
     <div className="min-h-screen bg-[#FFF5F5] text-slate-800 font-inter overflow-x-hidden relative selection:bg-red-600 selection:text-white">
       <Navbar />
 
-      {/* WATERMARK LOGO KUKANG TRANSPARAN DI LATAR BELAKANG */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[750px] h-[550px] sm:h-[750px] pointer-events-none opacity-[0.07] z-0 select-none flex items-center justify-center">
-        <img 
-          src="/logo-kukang.png" 
-          alt="Kukang EV Logo Watermark" 
+      {/* WATERMARK LOGO KUKANG TRANSPARAN DI LATAR BELAKANG (GPU ACCELERATED & OPTIMIZED) */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] pointer-events-none opacity-[0.06] z-0 select-none flex items-center justify-center transform-gpu will-change-transform">
+        <Image
+          src="/logo-kukang.png"
+          alt="Kukang EV Logo Watermark"
+          width={700}
+          height={700}
+          priority
+          quality={40}
           className="w-full h-full object-contain filter grayscale"
         />
       </div>
@@ -133,7 +138,7 @@ export default function NonTechnicalDivisionsPage() {
       {/* Modal Fullscreen Preview Foto Head Non-Technical */}
       {showHeadPhotoModal && (
         <div 
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-8 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-8 bg-slate-950/90 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setShowHeadPhotoModal(false)}
         >
           <button
@@ -148,11 +153,13 @@ export default function NonTechnicalDivisionsPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative max-h-[75vh] w-auto h-auto rounded-2xl overflow-hidden border-2 border-red-500/50 shadow-2xl shadow-red-500/20 bg-slate-900 flex items-center justify-center">
-              <img 
+              <Image 
                 src={headNonTechnical.image} 
                 alt={headNonTechnical.name} 
+                width={700}
+                height={900}
+                quality={90}
                 className="max-h-[75vh] w-auto max-w-full object-contain"
-                onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
             </div>
 
@@ -169,11 +176,11 @@ export default function NonTechnicalDivisionsPage() {
       {/* Modal Detail Dokumentasi Alur Kerja Non-Technical */}
       {selectedActivityItem && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setSelectedActivityItem(null)}
         >
           <div 
-            className="relative max-w-4xl w-full bg-white/95 backdrop-blur-lg border-2 border-red-400 rounded-3xl overflow-hidden shadow-2xl shadow-red-950/30 flex flex-col max-h-[92vh]"
+            className="relative max-w-4xl w-full bg-white/95 backdrop-blur-md border-2 border-red-400 rounded-3xl overflow-hidden shadow-2xl shadow-red-950/30 flex flex-col max-h-[92vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Tombol Close */}
@@ -196,11 +203,13 @@ export default function NonTechnicalDivisionsPage() {
                 </p>
               </div>
 
-              <img 
+              <Image 
                 src={selectedActivityItem.img} 
                 alt={selectedActivityItem.name}
-                className="relative z-10 w-full h-full object-cover"
-                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
+                quality={85}
+                className="relative z-10 object-cover"
               />
 
               <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
@@ -240,7 +249,7 @@ export default function NonTechnicalDivisionsPage() {
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {selectedActivityItem.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 bg-white/90 backdrop-blur-xs border border-red-200 rounded-xl px-4 py-3 shadow-xs">
+                    <div key={idx} className="flex items-center gap-2.5 bg-white/90 border border-red-200 rounded-xl px-4 py-3 shadow-xs">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span className="text-xs text-slate-800 font-inter font-semibold">{item}</span>
                     </div>
@@ -267,28 +276,30 @@ export default function NonTechnicalDivisionsPage() {
           </p>
         </div>
 
-        {/* SALAM PEMBUKA HEAD NON-TECHNICAL (GLASSMORPHISM CARD) */}
-        <div className="relative bg-white/85 backdrop-blur-md border-2 border-red-300/90 rounded-3xl p-6 sm:p-10 shadow-xl shadow-red-950/5 overflow-hidden">
+        {/* SALAM PEMBUKA HEAD NON-TECHNICAL (GLASSMORPHISM CARD & INSTANT MANAGER PHOTO) */}
+        <div className="relative bg-white/85 backdrop-blur-sm border-2 border-red-300/90 rounded-3xl p-6 sm:p-10 shadow-xl shadow-red-950/5 overflow-hidden transform-gpu">
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-red-300/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-rose-300/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-10">
-            {/* FOTO MANAJER */}
+            {/* FOTO MANAJER - INSTANT RENDER & OPTIMIZED */}
             <div className="w-full sm:w-80 shrink-0 flex flex-col items-center">
               <div 
                 onClick={() => setShowHeadPhotoModal(true)}
-                className="relative w-full h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border-2 border-red-400/80 shadow-lg shadow-red-950/15 bg-slate-900 cursor-pointer group"
+                className="relative w-full h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border-2 border-red-400/80 shadow-lg shadow-red-950/15 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 cursor-pointer group"
               >
-                <img
+                <Image
                   src={headNonTechnical.image}
                   alt={headNonTechnical.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  width={400}
+                  height={440}
+                  priority={true}
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  quality={85}
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
                 
                 <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-[10px] font-space-grotesk font-bold text-red-400 bg-slate-950/90 px-2.5 py-1 rounded-full border border-red-500/50 flex items-center gap-1 shadow-lg">
@@ -347,7 +358,7 @@ export default function NonTechnicalDivisionsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* 1. SEKTOR MEDIA, BRANDING & PR */}
-            <div className="bg-white/85 backdrop-blur-md border border-red-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-red-900/5 hover:border-red-400 transition-all">
+            <div className="bg-white/85 backdrop-blur-sm border border-red-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-red-900/5 hover:border-red-400 transition-all">
               <div className="flex items-center gap-3 border-b border-red-100 pb-4">
                 <div className="p-3 bg-red-50/90 border border-red-300 rounded-2xl text-red-700">
                   <Megaphone className="w-6 h-6" />
@@ -378,7 +389,7 @@ export default function NonTechnicalDivisionsPage() {
             </div>
 
             {/* 2. SEKTOR SPONSORSHIP, FINANCE & OPERATIONS */}
-            <div className="bg-white/85 backdrop-blur-md border border-red-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-red-900/5 hover:border-red-400 transition-all">
+            <div className="bg-white/85 backdrop-blur-sm border border-red-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg shadow-red-900/5 hover:border-red-400 transition-all">
               <div className="flex items-center gap-3 border-b border-red-100 pb-4">
                 <div className="p-3 bg-red-50/90 border border-red-300 rounded-2xl text-red-700">
                   <DollarSign className="w-6 h-6" />
@@ -419,7 +430,7 @@ export default function NonTechnicalDivisionsPage() {
             <h3 className="text-2xl sm:text-3xl font-space-grotesk font-extrabold text-slate-900">
               BRANDING <span className="text-red-600">PROFILE</span>
             </h3>
-            <p className="text-xs text-slate-600 font-medium max-w-md mx-auto">
+            <p className="text-xs text-slate-600 font-medium max-w-md mx-auto font-inter">
               Klik kartu atau gambar untuk melihat penjelasan detail kegiatan
             </p>
           </div>
@@ -429,21 +440,24 @@ export default function NonTechnicalDivisionsPage() {
               <div 
                 key={idx} 
                 onClick={() => setSelectedActivityItem(p)}
-                className="group relative bg-white/90 backdrop-blur-xs border-2 border-red-200/80 hover:border-red-500 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                className="group relative bg-white/90 border-2 border-red-200/80 hover:border-red-500 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer flex flex-col justify-between transform-gpu"
               >
                 {/* Visual Header / Foto Mini */}
                 <div className="relative h-44 sm:h-48 w-full bg-slate-950 overflow-hidden shrink-0">
-                  <img 
+                  <Image 
                     src={p.img} 
                     alt={p.name}
+                    width={380}
+                    height={200}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    quality={75}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                   
                   <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
-                    <span className="font-space-grotesk font-black text-red-400 text-[11px] bg-slate-950/90 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-red-500/40 shadow-xs">
+                    <span className="font-space-grotesk font-black text-red-400 text-[11px] bg-slate-950/90 px-2.5 py-1 rounded-lg border border-red-500/40 shadow-xs">
                       PHASE {p.step}
                     </span>
                     <span className="text-[10px] font-space-grotesk font-bold text-slate-100 bg-red-600/90 px-2.5 py-1 rounded-lg border border-red-400/50 shadow-xs">
@@ -478,7 +492,7 @@ export default function NonTechnicalDivisionsPage() {
         </div>
 
         {/* CALL TO ACTION */}
-        <div className="text-center bg-gradient-to-r from-red-50/90 via-rose-50/90 to-red-100/90 backdrop-blur-md border border-red-300/80 rounded-3xl p-8 max-w-3xl mx-auto shadow-md">
+        <div className="text-center bg-gradient-to-r from-red-50/90 via-rose-50/90 to-red-100/90 border border-red-300/80 rounded-3xl p-8 max-w-3xl mx-auto shadow-md">
           <h3 className="font-space-grotesk font-bold text-slate-900 text-lg mb-2">Tertarik Mengenal Anggota Tim Non-Technical?</h3>
           <p className="text-xs text-slate-600 max-w-md mx-auto mb-6 font-inter">
             Lihat daftar lengkap mahasiswa dan manajer yang mengelola divisi branding, sponsorship, dan operasional Kukang EV.
@@ -493,7 +507,7 @@ export default function NonTechnicalDivisionsPage() {
 
       </main>
 
-      <footer className="relative z-10 border-t border-red-200 py-8 text-center text-xs text-slate-600 font-inter bg-red-50/80 backdrop-blur-md">
+      <footer className="relative z-10 border-t border-red-200 py-8 text-center text-xs text-slate-600 font-inter bg-red-50/80 backdrop-blur-sm">
         © {new Date().getFullYear()} Kukang EV Team - ITERA. All rights reserved.
       </footer>
     </div>
